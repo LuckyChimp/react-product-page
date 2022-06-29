@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+// variables
+// colors - primary
+$clr_prim_orange: hsl(26, 100%, 55%);
+$clr_prim_paleOrange: hsl(25, 100%, 94%);
+
+// colors - neutral
+$clr_neut_daBlue: hsl(220, 13%, 13%);
+$clr_neut_daGrayBlue: hsl(219, 9%, 45%);
+$clr_neut_grayBlue: hsl(220, 14%, 75%);
+$clr_neut_liGrayBlue: hsl(223, 64%, 98%);
+$clr_neut_white: hsl(0, 0%, 100%);
+$clr_neut_black: hsl(0, 0%, 0%); // TODO with 75% opacity for lightbox background
+
+$breakpoint_small: 375px;
+$breakpoint_large: 1440px;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Kumbh Sans', sans-serif;
+}
+
+body {
+  font-size: 16px;
+
+  footer {
+    padding-bottom: 0.5rem;
+
+    .attribution {
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: #8f8f8f;
+
+      a {
+        color: #7881aa;
+        font-weight: 400;
+      }
+    }
+  }
+}
