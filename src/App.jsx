@@ -3,6 +3,8 @@ import Product from './components/Product';
 import CartPopup from './components/CartPopup';
 import Lightbox from './components/Lightbox';
 
+// TODO edit README.md,
+
 function App() {
   return (
     <>
