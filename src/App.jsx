@@ -3,7 +3,7 @@ import Product from './components/Product';
 import CartPopup from './components/CartPopup';
 import Lightbox from './components/Lightbox';
 
-// TODO edit README.md,
+// TODO edit README.md, create screenshot.png in root folder
 
 function App() {
   return (
