@@ -8,7 +8,7 @@ const Navbar = () => {
     <nav>
       <img src={CompanyLogo} alt='sneakers logo' className='nav-logo' />
       <a href='/' className='nav-collections'>
-        Collections
+        /* TODO maybe import as Route or Link - dive into topic */ Collections
       </a>
       <a href='/' className='nav-men'>
         Men
