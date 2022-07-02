@@ -1,3 +1,4 @@
+import './App.scss';
 import Navbar from './components/Navbar';
 import Product from './components/Product';
 import CartPopup from './components/CartPopup';
