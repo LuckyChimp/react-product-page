@@ -3,4 +3,71 @@
 // use variables like this: "color: variables.$clr_prim;"
 
 nav {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid variables.$clr_neut_grayBlue;
+
+	* {
+		transition: all 200ms ease-in-out;
+	}
+
+	.nav-left-container {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		align-items: center;
+
+		.nav-links {
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: space-between;
+			align-items: center;
+			margin-left: 4rem;
+
+			.nav-link {
+				padding: 2em 0;
+				color: variables.$clr_neut_daGrayBlue;
+				text-decoration: none;
+				font-size: 0.9em;
+				border-bottom: 4px solid transparent;
+
+				&:hover {
+					border-bottom: 4px solid variables.$clr_prim_orange;
+					color: variables.$clr_neut_daBlue;
+				}
+
+				&:not(:last-child) {
+					margin-right: 2.5rem;
+				}
+			}
+		}
+	}
+
+	.nav-right-container {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		align-items: center;
+
+		.nav-shopping-cart-icon {
+			&:hover * {
+				fill: variables.$clr_neut_daBlue;
+			}
+		}
+
+		.nav-profile-avatar {
+			box-sizing: content-box;
+			width: 50px;
+			height: 50px;
+			margin-left: 2rem;
+			border: 2px solid transparent;
+			border-radius: 50%;
+
+			&:hover {
+				border: 2px solid variables.$clr_prim_orange;
+			}
+		}
+	}
 }

@@ -1,3 +1,4 @@
+import { BrowserRouter as Router } from 'react-router-dom';
 import './App.scss';
 import Navbar from './components/Navbar';
 import Product from './components/Product';
@@ -8,7 +9,7 @@ import Lightbox from './components/Lightbox';
 
 function App() {
   return (
-    <>
+    <Router>
       <Navbar></Navbar>
 
       <Product></Product>
@@ -26,7 +27,7 @@ function App() {
       <CartPopup></CartPopup>
 
       <Lightbox></Lightbox>
-    </>
+    </Router>
   );
 }
 

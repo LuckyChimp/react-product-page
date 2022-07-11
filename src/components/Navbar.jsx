@@ -1,35 +1,46 @@
+import { NavLink } from 'react-router-dom';
 import './Navbar.scss';
 import CompanyLogo from '../assets/images/logo.svg';
-import CartIcon from '../assets/images/icon-cart.svg';
+import CartIcon from './icons/CartIcon';
 import Avatar from '../assets/images/image-avatar.png';
 
 const Navbar = () => {
-  return (
-    <nav>
-      <img src={CompanyLogo} alt='sneakers logo' className='nav-logo' />
-      <a href='/' className='nav-collections'>
-        /* TODO maybe import as Route or Link - dive into topic */ Collections
-      </a>
-      <a href='/' className='nav-men'>
-        Men
-      </a>
-      <a href='/' className='nav-women'>
-        Women
-      </a>
-      <a href='/' className='nav-about'>
-        About
-      </a>
-      <a href='/' className='nav-contact'>
-        Contact
-      </a>
-      <button className='nav-shopping-cart'>
-        <img src={CartIcon} alt='icon from a shopping cart' className='nav-shopping-cart-icon' />
-      </button>
-      <button className='nav-profile'>
-        <img src={Avatar} alt='user avatar' className='nav-profile-avatar' />
-      </button>
-    </nav>
-  );
+	return (
+		<nav>
+			<div className='nav-left-container'>
+				<NavLink to='/'>
+					<img src={CompanyLogo} alt='sneakers logo' className='nav-logo' />
+				</NavLink>
+
+				<div className='nav-links'>
+					<NavLink to='/' className='nav-link nav-link-collections'>
+						Collections
+					</NavLink>
+					<NavLink to='/' className='nav-link nav-link-men'>
+						Men
+					</NavLink>
+					<NavLink to='/' className='nav-link nav-link-women'>
+						Women
+					</NavLink>
+					<NavLink to='/' className='nav-link nav-link-about'>
+						About
+					</NavLink>
+					<NavLink to='/' className='nav-link nav-link-contact'>
+						Contact
+					</NavLink>
+				</div>
+			</div>
+
+			<div className='nav-right-container'>
+				<button className='nav-shopping-cart'>
+					<CartIcon className='nav-shopping-cart-icon'></CartIcon>
+				</button>
+				<button className='nav-profile'>
+					<img src={Avatar} alt='user avatar' className='nav-profile-avatar' />
+				</button>
+			</div>
+		</nav>
+	);
 };
 
 export default Navbar;
