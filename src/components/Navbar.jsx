@@ -1,10 +1,14 @@
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navbar.scss';
 import CompanyLogo from '../assets/images/logo.svg';
 import CartIcon from './icons/CartIcon';
 import Avatar from '../assets/images/image-avatar.png';
+import CartPopup from './CartPopup';
 
 const Navbar = () => {
+	const [cartPopupVisible, setCartPopupVisible] = useState(false);
+
 	return (
 		<nav>
 			<div className='nav-left-container'>
@@ -32,9 +36,16 @@ const Navbar = () => {
 			</div>
 
 			<div className='nav-right-container'>
-				<button className='nav-shopping-cart'>
-					<CartIcon className='nav-shopping-cart-icon'></CartIcon>
-				</button>
+				<div className='nav-shopping-cart'>
+					<button
+						className='nav-shopping-cart-button'
+						onMouseEnter={() => setCartPopupVisible(true)}
+						onMouseLeave={() => setCartPopupVisible(false)}
+					>
+						<CartIcon className='nav-shopping-cart-icon'></CartIcon>
+					</button>
+					<CartPopup visible={cartPopupVisible}></CartPopup>
+				</div>
 				<button className='nav-profile'>
 					<img src={Avatar} alt='user avatar' className='nav-profile-avatar' />
 				</button>
