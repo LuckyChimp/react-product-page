@@ -73,7 +73,9 @@ const Navbar = () => {
 						onMouseEnter={() => {
 							if (!cartPopupPermanent) setCartPopupVisible(true);
 						}}
-						onMouseLeave={() => {
+						onMouseLeave={(e) => {
+							// don't hide popup if cursor leaves the bottom of element
+							if (e.clientY > e.target.getBoundingClientRect().bottom) return;
 							if (!cartPopupPermanent) setCartPopupVisible(false);
 						}}
 						onClick={() => {
@@ -89,7 +91,13 @@ const Navbar = () => {
 					>
 						<CartIcon className='nav-shopping-cart-icon'></CartIcon>
 					</button>
-					{cartPopupVisible && <CartPopup></CartPopup>}
+					{cartPopupVisible && (
+						<CartPopup
+							onMouseLeave={() => {
+								if (!cartPopupPermanent) setCartPopupVisible(false);
+							}}
+						></CartPopup>
+					)}
 				</div>
 				<button className='nav-profile'>
 					<img src={Avatar} alt='user avatar' className='nav-profile-avatar' />
