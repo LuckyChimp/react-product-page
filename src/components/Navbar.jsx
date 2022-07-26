@@ -3,8 +3,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navbar.scss';
 import CompanyLogo from '../assets/images/logo.svg';
-import CartIcon from './icons/CartIcon';
 import Avatar from '../assets/images/image-avatar.png';
+import CartIcon from './icons/CartIcon';
 import CartPopup from './CartPopup';
 
 const Navbar = () => {
