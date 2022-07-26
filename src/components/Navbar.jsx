@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navbar.scss';
 import CompanyLogo from '../assets/images/logo.svg';
@@ -8,6 +9,36 @@ import CartPopup from './CartPopup';
 
 const Navbar = () => {
 	const [cartPopupVisible, setCartPopupVisible] = useState(false);
+	const [cartPopupPermanent, setCartPopupPermanent] = useState(false);
+
+	const useOutsideClick = (callback) => {
+		const ref = useRef();
+
+		useEffect(() => {
+			const handleClick = (event) => {
+				if (ref.current && !ref.current.contains(event.target)) {
+					callback();
+				}
+			};
+
+			document.addEventListener('click', handleClick);
+
+			return () => {
+				document.removeEventListener('click', handleClick);
+			};
+		}, [ref, callback]);
+
+		return ref;
+	};
+
+	const handleOutsideClick = () => {
+		if (cartPopupPermanent) {
+			setCartPopupVisible(false);
+			setCartPopupPermanent(false);
+		}
+	};
+
+	const ref = useOutsideClick(handleOutsideClick);
 
 	return (
 		<nav>
@@ -39,12 +70,26 @@ const Navbar = () => {
 				<div className='nav-shopping-cart'>
 					<button
 						className='nav-shopping-cart-button'
-						onMouseEnter={() => setCartPopupVisible(true)}
-						onMouseLeave={() => setCartPopupVisible(false)}
+						onMouseEnter={() => {
+							if (!cartPopupPermanent) setCartPopupVisible(true);
+						}}
+						onMouseLeave={() => {
+							if (!cartPopupPermanent) setCartPopupVisible(false);
+						}}
+						onClick={() => {
+							if (!cartPopupPermanent) {
+								setCartPopupVisible(true);
+								setCartPopupPermanent(true);
+							} else {
+								setCartPopupVisible(false);
+								setCartPopupPermanent(false);
+							}
+						}}
+						ref={ref}
 					>
 						<CartIcon className='nav-shopping-cart-icon'></CartIcon>
 					</button>
-					<CartPopup visible={cartPopupVisible}></CartPopup>
+					{cartPopupVisible && <CartPopup></CartPopup>}
 				</div>
 				<button className='nav-profile'>
 					<img src={Avatar} alt='user avatar' className='nav-profile-avatar' />

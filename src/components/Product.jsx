@@ -1,11 +1,5 @@
-import ImageCarousel from './ImageCarousel';
-
 const Product = () => {
-  return (
-    <>
-      <ImageCarousel></ImageCarousel>
-    </>
-  );
+	return <></>;
 };
 
 export default Product;

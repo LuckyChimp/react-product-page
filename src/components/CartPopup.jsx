@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import './CartPopup.scss';
 
-const CartPopup = ({ visible }) => {
+const CartPopup = () => {
 	const [items, setItems] = useState([]);
 
 	return (
-		<div className='cart-popup' style={{ display: !visible && 'none' }}>
+		<div className='cart-popup'>
 			<h3 className='cart-popup-headline'>Cart</h3>
 			<div className='cart-popup-content'>
 				{items.length > 0 ? (
