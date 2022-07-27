@@ -1,0 +1,70 @@
+@use '../variables';
+
+// use variables like this: "color: variables.$clr_prim;"
+
+main {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+	gap: 20%;
+	padding: 5rem 2.5rem 0 2.5rem;
+
+	.product-images {
+		max-width: 30%;
+		flex: 30%;
+
+		.product-image {
+			display: block;
+			max-width: 100%;
+			border-radius: variables.$br;
+		}
+
+		.product-thumbnails {
+			max-width: 100%;
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: space-between;
+			align-items: center;
+			gap: 6%;
+			margin-top: 6%;
+
+			.product-thumbnail-container {
+				position: relative;
+				flex: 25%;
+				cursor: pointer;
+
+				.product-thumbnail {
+					display: block;
+					max-width: 100%;
+					border-radius: variables.$br;
+				}
+
+				.product-thumbnail-overlay {
+					opacity: 0;
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					left: 0;
+					right: 0;
+					border-radius: variables.$br;
+					background-color: rgba(255, 255, 255, 0.6);
+					transition: opacity 200ms ease-in-out;
+
+					&--selected {
+						opacity: 1;
+						border: 2px solid variables.$clr_prim_orange;
+					}
+
+					&--hovered {
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+
+	.product-details {
+		flex: 50%;
+	}
+}
