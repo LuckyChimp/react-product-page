@@ -75,7 +75,9 @@ const Navbar = () => {
 						}}
 						onMouseLeave={(e) => {
 							// don't hide popup if cursor leaves the bottom of element
-							if (e.clientY > e.target.getBoundingClientRect().bottom) return;
+							if (e.clientY >= e.target.getBoundingClientRect().bottom) {
+								return;
+							}
 							if (!cartPopupPermanent) setCartPopupVisible(false);
 						}}
 						onClick={() => {
