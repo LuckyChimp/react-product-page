@@ -15,7 +15,14 @@ const Navbar = () => {
 
 		useEffect(() => {
 			const handleClick = (event) => {
-				if (ref.current && !ref.current.contains(event.target)) {
+				const cartPopup = document.getElementsByClassName('cart-popup')[0];
+				if (
+					ref.current &&
+					cartPopup &&
+					event.target !== cartPopup &&
+					!cartPopup.contains(event.target) &&
+					!ref.current.contains(event.target)
+				) {
 					callback();
 				}
 			};
