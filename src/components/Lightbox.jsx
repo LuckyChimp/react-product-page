@@ -1,5 +1,5 @@
 const Lightbox = () => {
-  return <></>;
+	return <div className='lightbox'></div>;
 };
 
 export default Lightbox;

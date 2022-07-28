@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import './CartPopup.scss';
 
 const CartPopup = ({ onMouseLeave }) => {
 	const [items, setItems] = useState([]);

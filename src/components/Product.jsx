@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import './Product.scss';
 import ProductImage1 from '../assets/images/image-product-1.jpg';
 import ProductImage2 from '../assets/images/image-product-2.jpg';
 import ProductImage3 from '../assets/images/image-product-3.jpg';

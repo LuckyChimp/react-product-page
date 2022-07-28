@@ -1,10 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './Navbar.scss';
 import CompanyLogo from '../assets/images/logo.svg';
 import Avatar from '../assets/images/image-avatar.png';
-import CartIcon from './icons/CartIcon';
+import { ReactComponent as CartIcon } from '../assets/images/icon-cart.svg';
 import CartPopup from './CartPopup';
 
 const Navbar = () => {
