@@ -97,14 +97,14 @@ const Navbar = () => {
 						}}
 						ref={ref}
 					>
-						<CartIcon className='nav-shopping-cart-icon'></CartIcon>
+						<CartIcon className='nav-shopping-cart-icon' />
 					</button>
 					{cartPopupVisible && (
 						<CartPopup
 							onMouseLeave={() => {
 								if (!cartPopupPermanent) setCartPopupVisible(false);
 							}}
-						></CartPopup>
+						/>
 					)}
 				</div>
 				<button className='nav-profile'>

@@ -12,7 +12,7 @@ function App() {
 	useEffect(() => {
 		const handleKeyDown = (event) => {
 			if (event.key === 'Escape') {
-				setLightboxStates({ ...lightboxStates, visible: false });
+				closeLightbox();
 			}
 		};
 
@@ -21,17 +21,24 @@ function App() {
 		return () => {
 			window.removeEventListener('keydown', handleKeyDown);
 		};
-	}, []);
+	}, [lightboxStates, closeLightbox]);
 
 	const openLightbox = (id) => {
 		setLightboxStates({ ...lightboxStates, imageId: id, visible: true });
 	};
 
+	function closeLightbox() {
+		// avoid too many rerenders
+		if (lightboxStates.visible) {
+			setLightboxStates({ ...lightboxStates, visible: false });
+		}
+	}
+
 	return (
 		<Router>
-			<Navbar></Navbar>
+			<Navbar />
 
-			<Product openLightbox={(id) => openLightbox(id)}></Product>
+			<Product openLightbox={(id) => openLightbox(id)} />
 
 			<footer>
 				<div className='attribution'>
@@ -43,7 +50,11 @@ function App() {
 				</div>
 			</footer>
 
-			<Lightbox visible={lightboxStates.visible} imageId={lightboxStates.imageId}></Lightbox>
+			<Lightbox
+				visible={lightboxStates.visible}
+				imageId={lightboxStates.imageId}
+				closeLightbox={() => closeLightbox()}
+			/>
 		</Router>
 	);
 }

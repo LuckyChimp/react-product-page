@@ -7,26 +7,61 @@ import ProductThumbnail1 from '../assets/images/image-product-1-thumbnail.jpg';
 import ProductThumbnail2 from '../assets/images/image-product-2-thumbnail.jpg';
 import ProductThumbnail3 from '../assets/images/image-product-3-thumbnail.jpg';
 import ProductThumbnail4 from '../assets/images/image-product-4-thumbnail.jpg';
+import { ReactComponent as PreviousIcon } from '../assets/images/icon-previous.svg';
+import { ReactComponent as NextIcon } from '../assets/images/icon-next.svg';
+import { ReactComponent as CloseIcon } from '../assets/images/icon-close.svg';
 
-const ImagePreview = ({ defaultImageId, canOpenLightbox, openLightbox }) => {
+const ImagePreview = ({ defaultImageId, canOpenLightbox, openLightbox, closeLightbox, displayControls }) => {
 	const [selectedThumbnailId, setSelectedThumbnailId] = useState(1);
 
 	useEffect(() => {
 		setSelectedThumbnailId(defaultImageId);
 	}, [defaultImageId]);
 
+	const showPreviousImage = () => {
+		let prevImageId;
+		if (selectedThumbnailId - 1 < 1) {
+			prevImageId = 4;
+		} else {
+			prevImageId = selectedThumbnailId - 1;
+		}
+		setSelectedThumbnailId(prevImageId);
+	};
+
+	const showNextImage = () => {
+		let nextImageId;
+		if (selectedThumbnailId + 1 > 4) {
+			nextImageId = 1;
+		} else {
+			nextImageId = selectedThumbnailId + 1;
+		}
+		setSelectedThumbnailId(nextImageId);
+	};
+
 	const ProductImage = ({ id, canOpenLightbox, openLightbox }) => {
 		return (
-			<img
-				src={getProductImageById(id)}
-				alt='product'
-				className='product-image'
-				style={{ cursor: canOpenLightbox ? 'pointer' : 'initial' }}
-				onClick={() => {
-					if (!canOpenLightbox) return;
-					openLightbox(id);
-				}}
-			/>
+			<div className='product-image-container'>
+				<img
+					src={getProductImageById(id)}
+					alt='product'
+					className='product-image'
+					style={{ cursor: canOpenLightbox ? 'pointer' : 'initial' }}
+					onClick={() => {
+						if (!canOpenLightbox) return;
+						openLightbox(id);
+					}}
+				/>
+				{displayControls && (
+					<div className='product-image-controls'>
+						<div className='product-image-control-previous' onClick={() => showPreviousImage()}>
+							<PreviousIcon />
+						</div>
+						<div className='product-image-control-next' onClick={() => showNextImage()}>
+							<NextIcon />
+						</div>
+					</div>
+				)}
+			</div>
 		);
 	};
 
@@ -83,6 +118,9 @@ const ImagePreview = ({ defaultImageId, canOpenLightbox, openLightbox }) => {
 					changeSelectedThumbnail={(id) => setSelectedThumbnailId(id)}
 				/>
 			</div>
+			{displayControls && (
+				<CloseIcon viewBox='0.3 1 13.4 13.4' className='preview-control-close-icon' onClick={() => closeLightbox()} />
+			)}
 		</div>
 	);
 };
