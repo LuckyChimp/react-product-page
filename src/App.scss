@@ -26,7 +26,7 @@ body {
 		border-bottom: 1px solid variables.$clr_neut_grayBlue;
 
 		* {
-			transition: all 200ms ease-in-out;
+			transition: all variables.$trans_duration variables.$trans_mode;
 		}
 
 		.nav-left-container {
@@ -236,6 +236,14 @@ body {
 				height: 50px;
 				border-radius: 50%;
 				cursor: pointer;
+
+				* {
+					transition: stroke variables.$trans_duration variables.$trans_mode;
+				}
+
+				&:hover * {
+					stroke: variables.$clr_prim_orange;
+				}
 			}
 
 			.product-image-control-previous {
@@ -277,7 +285,7 @@ body {
 				border-radius: variables.$br;
 				background-color: rgba(255, 255, 255, 0.6);
 				opacity: 0;
-				transition: opacity 200ms ease-in-out;
+				transition: opacity variables.$trans_duration variables.$trans_mode;
 
 				&--selected {
 					opacity: 1;
@@ -301,6 +309,11 @@ body {
 
 		* {
 			fill: variables.$clr_neut_white;
+			transition: fill variables.$trans_duration variables.$trans_mode;
+		}
+
+		&:hover * {
+			fill: variables.$clr_prim_orange;
 		}
 	}
 }
