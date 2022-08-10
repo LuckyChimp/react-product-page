@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import CompanyLogo from '../assets/images/logo.svg';
+import { ReactComponent as CompanyLogo } from '../assets/images/logo.svg';
 import Avatar from '../assets/images/image-avatar.png';
 import { ReactComponent as CartIcon } from '../assets/images/icon-cart.svg';
 import CartPopup from './CartPopup';
@@ -49,7 +49,7 @@ const Navbar = () => {
 		<nav>
 			<div className='nav-left-container'>
 				<NavLink to='/'>
-					<img src={CompanyLogo} alt='sneakers logo' className='nav-logo' />
+					<CompanyLogo alt='sneakers logo' className='nav-logo' width={138} height={20} />
 				</NavLink>
 
 				<div className='nav-links'>

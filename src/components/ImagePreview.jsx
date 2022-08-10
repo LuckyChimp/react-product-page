@@ -46,6 +46,8 @@ const ImagePreview = ({ defaultImageId, canOpenLightbox, openLightbox, closeLigh
 					alt='product'
 					className='product-image'
 					style={{ cursor: canOpenLightbox ? 'pointer' : 'initial' }}
+					width={1000}
+					height={1000}
 					onClick={() => {
 						if (!canOpenLightbox) return;
 						openLightbox(id);
