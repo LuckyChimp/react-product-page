@@ -8,6 +8,16 @@
 	font-family: 'Kumbh Sans', sans-serif;
 }
 
+h1,
+h2,
+h3,
+p,
+button,
+span,
+div {
+	color: variables.$clr_neut_daBlue;
+}
+
 button {
 	border: none;
 	background-color: transparent;
@@ -83,7 +93,7 @@ body {
 				width: 360px;
 				margin-top: 1em;
 				margin-left: calc(-360px / 2);
-				border-radius: 0.5em;
+				border-radius: variables.$br_normal;
 				box-shadow: 0px 15px 30px -10px #949494;
 				background-color: variables.$clr_neut_white;
 				z-index: 2;
@@ -126,13 +136,13 @@ body {
 	main {
 		display: flex;
 		flex-flow: row nowrap;
-		justify-content: space-between;
+		justify-content: center;
 		align-items: center;
-		gap: 20%;
+		gap: 10%;
 		padding: 5rem 2.5rem 0 2.5rem;
 
 		.product-images {
-			flex: 30%;
+			flex: 35% 0 0;
 
 			.product-image {
 			}
@@ -152,7 +162,126 @@ body {
 		}
 
 		.product-details {
-			flex: 50%;
+			flex: 35% 0 0;
+
+			.product-text-container {
+				.product-producer {
+					margin-bottom: 1.5rem;
+					font-size: 0.85rem;
+					letter-spacing: 0.15em;
+					text-transform: uppercase;
+					color: variables.$clr_prim_orange;
+					text-shadow: 0 0 4px rgb(248, 221, 200);
+				}
+
+				.product-title {
+					margin-bottom: 2.5rem;
+					font-size: 3rem;
+					line-height: 1em;
+				}
+
+				.product-description {
+					color: variables.$clr_neut_daGrayBlue;
+					line-height: 1.5em;
+				}
+			}
+
+			.product-price-container {
+				position: relative;
+				margin: 1.5rem 0 2rem 0;
+
+				.product-current-price {
+					display: inline-block;
+				}
+
+				.product-discount {
+					position: absolute;
+					top: 0.1rem;
+					margin-left: 1rem;
+					padding: 0.2em 0.5em;
+					font-size: 1rem;
+					font-weight: bold;
+					color: variables.$clr_prim_orange;
+					background-color: variables.$clr_prim_paleOrange;
+					border-radius: variables.$br_small;
+				}
+
+				.product-original-price {
+					display: block;
+					margin-top: 0.5rem;
+					font-weight: bold;
+					text-decoration: line-through;
+					color: variables.$clr_neut_grayBlue;
+				}
+			}
+
+			.product-controls-container {
+				display: flex;
+				flex-flow: row wrap;
+				gap: 3%;
+				height: 3rem;
+
+				.product-amount-control {
+					flex: 30%;
+					display: flex;
+					flex-flow: row nowrap;
+					justify-content: center;
+					align-items: center;
+					background-color: variables.$clr_neut_liGrayBlue;
+					border-radius: 6px;
+
+					.product-amount-control-decrease,
+					.product-amount-control-increase {
+						flex: 30%;
+						padding-bottom: 8px;
+						color: variables.$clr_prim_orange;
+						transition: color variables.$trans_duration variables.$trans_mode;
+						font-size: 2rem;
+						font-weight: bold;
+
+						&:hover {
+							color: rgba($color: variables.$clr_prim_orange, $alpha: 0.5);
+						}
+					}
+
+					.product-amount-control-display {
+						flex: 40%;
+						padding: 0 1em;
+						font-weight: bold;
+						text-align: center;
+						cursor: default;
+						user-select: none;
+					}
+				}
+
+				.product-add-to-cart {
+					flex: 67%;
+					display: flex;
+					flex-flow: row;
+					justify-content: center;
+					align-items: center;
+					background-color: variables.$clr_prim_orange;
+					transition: background-color variables.$trans_duration variables.$trans_mode;
+					border-radius: variables.$br_normal;
+					box-shadow: 0 20px 40px -15px variables.$clr_prim_orange;
+
+					&:hover {
+						background-color: rgba($color: variables.$clr_prim_orange, $alpha: 0.7);
+					}
+
+					.product-add-to-cart-icon * {
+						fill: variables.$clr_neut_white;
+						transform: scale(75%);
+					}
+
+					.product-add-to-cart-text {
+						font-size: 1rem;
+						font-weight: bold;
+						margin-left: 0.5em;
+						color: variables.$clr_neut_white;
+					}
+				}
+			}
 		}
 	}
 
@@ -223,7 +352,7 @@ body {
 			max-width: 100%;
 			height: auto;
 			display: block;
-			border-radius: variables.$br;
+			border-radius: variables.$br_large;
 		}
 
 		.product-image-controls {
@@ -279,7 +408,7 @@ body {
 			.product-thumbnail {
 				display: block;
 				max-width: 100%;
-				border-radius: variables.$br;
+				border-radius: variables.$br_normal;
 			}
 
 			.product-thumbnail-overlay {
@@ -288,7 +417,7 @@ body {
 				bottom: 0;
 				left: 0;
 				right: 0;
-				border-radius: variables.$br;
+				border-radius: variables.$br_normal;
 				background-color: rgba(255, 255, 255, 0.6);
 				opacity: 0;
 				transition: opacity variables.$trans_duration variables.$trans_mode;
