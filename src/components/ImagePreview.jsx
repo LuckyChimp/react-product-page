@@ -18,6 +18,9 @@ const ImagePreview = ({ defaultImageId, canOpenLightbox, openLightbox, closeLigh
 		setSelectedThumbnailId(defaultImageId);
 	}, [defaultImageId]);
 
+	const productThumbnails = [ProductThumbnail1, ProductThumbnail2, ProductThumbnail3, ProductThumbnail4];
+	const productImages = [ProductImage1, ProductImage2, ProductImage3, ProductImage4];
+
 	const showPreviousImage = () => {
 		let prevImageId;
 		if (selectedThumbnailId - 1 < 1) {
@@ -42,7 +45,7 @@ const ImagePreview = ({ defaultImageId, canOpenLightbox, openLightbox, closeLigh
 		return (
 			<div className='product-image-container'>
 				<img
-					src={getProductImageById(id)}
+					src={productImages[id - 1]}
 					alt='product'
 					className='product-image'
 					style={{ cursor: canOpenLightbox ? 'pointer' : 'initial' }}
@@ -83,7 +86,7 @@ const ImagePreview = ({ defaultImageId, canOpenLightbox, openLightbox, closeLigh
 					setHovered(false);
 				}}
 			>
-				<img src={getProductThumbnailById(id)} alt='thumbnail of product' className='product-thumbnail' />
+				<img src={productThumbnails[id - 1]} alt='thumbnail of product' className='product-thumbnail' />
 				<div
 					className={
 						'product-thumbnail-overlay' +
@@ -128,43 +131,3 @@ const ImagePreview = ({ defaultImageId, canOpenLightbox, openLightbox, closeLigh
 };
 
 export default ImagePreview;
-
-const getProductThumbnailById = (id) => {
-	switch (id) {
-		case 1: {
-			return ProductThumbnail1;
-		}
-		case 2: {
-			return ProductThumbnail2;
-		}
-		case 3: {
-			return ProductThumbnail3;
-		}
-		case 4: {
-			return ProductThumbnail4;
-		}
-		default: {
-			return ProductThumbnail1;
-		}
-	}
-};
-
-const getProductImageById = (id) => {
-	switch (id) {
-		case 1: {
-			return ProductImage1;
-		}
-		case 2: {
-			return ProductImage2;
-		}
-		case 3: {
-			return ProductImage3;
-		}
-		case 4: {
-			return ProductImage4;
-		}
-		default: {
-			return ProductImage1;
-		}
-	}
-};
