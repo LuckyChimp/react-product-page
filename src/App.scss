@@ -35,6 +35,11 @@ body {
 			justify-content: space-between;
 			align-items: center;
 
+			.nav-logo {
+				max-width: 100%;
+				height: auto;
+			}
+
 			.nav-links {
 				display: flex;
 				flex-flow: row nowrap;
@@ -216,6 +221,7 @@ body {
 
 		.product-image {
 			max-width: 100%;
+			height: auto;
 			display: block;
 			border-radius: variables.$br;
 		}
