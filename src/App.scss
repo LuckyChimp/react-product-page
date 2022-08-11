@@ -146,13 +146,13 @@ body {
 							}
 
 							.cart-popup-item-delete-button {
-								.cart-popup-item-delete-icon * {
+								.cart-popup-item-delete-icon use {
 									fill: variables.$clr_neut_grayBlue;
-									transition: fill variables.$trans_duration_fast variables.$trans_mode;
+									transition: fill variables.$trans_duration variables.$trans_mode;
 								}
 
 								&:hover {
-									.cart-popup-item-delete-icon * {
+									.cart-popup-item-delete-icon use {
 										fill: variables.$clr_neut_daGrayBlue;
 									}
 								}
