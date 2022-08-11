@@ -9,6 +9,8 @@ function App() {
 	// TODO edit README.md, create screenshot.png in root folder
 	const [lightboxStates, setLightboxStates] = useState({ imageId: null, visible: false });
 
+	const currencyChar = '$';
+
 	useEffect(() => {
 		const handleKeyDown = (event) => {
 			if (event.key === 'Escape') {
@@ -36,9 +38,9 @@ function App() {
 
 	return (
 		<Router>
-			<Navbar />
+			<Navbar currencyChar={currencyChar} />
 
-			<Product openLightbox={(id) => openLightbox(id)} />
+			<Product openLightbox={(id) => openLightbox(id)} currencyChar={currencyChar} />
 
 			<footer>
 				<div className='attribution'>

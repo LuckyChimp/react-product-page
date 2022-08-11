@@ -1,7 +1,7 @@
 import ImagePreview from './ImagePreview';
 import { ReactComponent as CartIcon } from '../assets/images/icon-cart.svg';
 
-const Product = ({ openLightbox }) => {
+const Product = ({ openLightbox, currencyChar }) => {
 	return (
 		<main>
 			<ImagePreview canOpenLightbox={true} openLightbox={openLightbox} defaultImageId={1} displayControls={false} />
@@ -15,9 +15,9 @@ const Product = ({ openLightbox }) => {
 					</p>
 				</div>
 				<div className='product-price-container'>
-					<h2 className='product-current-price'>$125.00</h2>
+					<h2 className='product-current-price'>{`${currencyChar}125.00`}</h2>
 					<span className='product-discount'>50%</span>
-					<span className='product-original-price'>$250.00</span>
+					<span className='product-original-price'>{`${currencyChar}250.00`}</span>
 				</div>
 				<div className='product-controls-container'>
 					<div className='product-amount-control'>

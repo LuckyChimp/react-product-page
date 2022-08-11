@@ -35,7 +35,7 @@ body {
 		align-items: center;
 		border-bottom: 1px solid variables.$clr_neut_grayBlue;
 
-		* {
+		> * {
 			transition: all variables.$trans_duration variables.$trans_mode;
 		}
 
@@ -99,7 +99,7 @@ body {
 				z-index: 2;
 
 				> * {
-					padding: 1em;
+					padding: 1.5rem;
 				}
 
 				.cart-popup-headline {
@@ -107,6 +107,70 @@ body {
 				}
 
 				.cart-popup-content {
+					.cart-popup-items {
+						.cart-popup-item {
+							display: flex;
+							flex-flow: row nowrap;
+							justify-content: space-between;
+							align-items: center;
+
+							.cart-popup-item-image {
+								max-width: 100%;
+								height: auto;
+								border-radius: variables.$br_small;
+							}
+
+							.cart-popup-item-details {
+								* {
+									color: variables.$clr_neut_daGrayBlue;
+								}
+
+								> * {
+									display: block;
+								}
+
+								.cart-popup-item-title {
+									margin-bottom: 0.5em;
+								}
+
+								.cart-popup-item-price-calculation {
+									*:not(:last-child) {
+										margin-right: 0.5em;
+									}
+
+									.cart-popup-item-total-price {
+										color: variables.$clr_neut_daBlue;
+										font-weight: bold;
+									}
+								}
+							}
+
+							.cart-popup-item-delete-button {
+								.cart-popup-item-delete-icon * {
+									fill: variables.$clr_neut_grayBlue;
+									transition: fill variables.$trans_duration_fast variables.$trans_mode;
+								}
+
+								&:hover {
+									.cart-popup-item-delete-icon * {
+										fill: variables.$clr_neut_daGrayBlue;
+									}
+								}
+							}
+						}
+					}
+
+					.cart-popup-checkout {
+						width: 100%;
+						margin-top: 1.5rem;
+						padding: 1em 0;
+						font-size: 1rem;
+						font-weight: bold;
+						color: variables.$clr_neut_white;
+						background-color: variables.$clr_prim_orange;
+						border-radius: variables.$br_normal;
+					}
+
 					.cart-popup-empty-message {
 						height: 150px;
 						display: flex;
@@ -452,3 +516,5 @@ body {
 		}
 	}
 }
+
+// TODO make website completely responsive

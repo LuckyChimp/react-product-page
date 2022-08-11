@@ -5,7 +5,7 @@ import Avatar from '../assets/images/image-avatar.png';
 import { ReactComponent as CartIcon } from '../assets/images/icon-cart.svg';
 import CartPopup from './CartPopup';
 
-const Navbar = () => {
+const Navbar = ({ currencyChar }) => {
 	const [cartPopupVisible, setCartPopupVisible] = useState(false);
 	const [cartPopupPermanent, setCartPopupPermanent] = useState(false);
 
@@ -103,6 +103,7 @@ const Navbar = () => {
 							onMouseLeave={() => {
 								if (!cartPopupPermanent) setCartPopupVisible(false);
 							}}
+							currencyChar={currencyChar}
 						/>
 					)}
 				</div>
