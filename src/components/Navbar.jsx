@@ -8,6 +8,7 @@ import CartPopup from './CartPopup';
 const Navbar = ({ currencyChar }) => {
 	const [cartPopupVisible, setCartPopupVisible] = useState(false);
 	const [cartPopupPermanent, setCartPopupPermanent] = useState(false);
+	const [cartAmount, setCartAmount] = useState(1);
 
 	const useOutsideClick = (callback) => {
 		const ref = useRef();
@@ -97,6 +98,7 @@ const Navbar = ({ currencyChar }) => {
 						ref={ref}
 					>
 						<CartIcon className='nav-shopping-cart-icon' />
+						{cartAmount > 0 && <span className='nav-shopping-cart-amount-badge'>{cartAmount}</span>}
 					</button>
 					{cartPopupVisible && (
 						<CartPopup
