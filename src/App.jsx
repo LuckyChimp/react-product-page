@@ -1,5 +1,5 @@
 import { BrowserRouter as Router } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import './App.scss';
 import Navbar from './components/Navbar';
 import ProductDetails from './components/ProductDetails';
@@ -17,6 +17,8 @@ import ProductThumbnail4 from './assets/images/image-product-4-thumbnail.jpg';
 
 function App() {
 	// TODO edit README.md, create screenshot.png in root folder
+	const currencyChar = '$';
+
 	const [lightboxStates, setLightboxStates] = useState({ imageId: null, visible: false });
 	const [product, setProduct] = useState(
 		new Product(
@@ -33,7 +35,12 @@ function App() {
 	);
 	const [cartItems, setCartItems] = useState([]);
 
-	const currencyChar = '$';
+	const closeLightbox = useCallback(() => {
+		// avoid too many rerenders
+		if (lightboxStates.visible) {
+			setLightboxStates({ ...lightboxStates, visible: false });
+		}
+	}, [lightboxStates]);
 
 	useEffect(() => {
 		const handleKeyDown = (event) => {
@@ -52,13 +59,6 @@ function App() {
 	const openLightbox = (id) => {
 		setLightboxStates({ ...lightboxStates, imageId: id, visible: true });
 	};
-
-	function closeLightbox() {
-		// avoid too many rerenders
-		if (lightboxStates.visible) {
-			setLightboxStates({ ...lightboxStates, visible: false });
-		}
-	}
 
 	const changeProductAmount = (changeBy) => {
 		setProduct({ ...product, amount: product.amount + changeBy });
