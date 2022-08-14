@@ -5,10 +5,10 @@ import Avatar from '../assets/images/image-avatar.png';
 import { ReactComponent as CartIcon } from '../assets/images/icon-cart.svg';
 import CartPopup from './CartPopup';
 
-const Navbar = ({ currencyChar }) => {
+const Navbar = ({ currencyChar, cartItems, deleteProductFromCart }) => {
 	const [cartPopupVisible, setCartPopupVisible] = useState(false);
 	const [cartPopupPermanent, setCartPopupPermanent] = useState(false);
-	const [cartAmount, setCartAmount] = useState(1);
+	const [cartAmount, setCartAmount] = useState(0);
 
 	const useOutsideClick = (callback) => {
 		const ref = useRef();
@@ -26,8 +26,9 @@ const Navbar = ({ currencyChar }) => {
 					callback();
 				}
 			};
-
 			document.addEventListener('click', handleClick);
+
+			setCartAmount(cartItems.reduce((prevItem, currItem) => prevItem + currItem.amount, 0));
 
 			return () => {
 				document.removeEventListener('click', handleClick);
@@ -106,6 +107,8 @@ const Navbar = ({ currencyChar }) => {
 								if (!cartPopupPermanent) setCartPopupVisible(false);
 							}}
 							currencyChar={currencyChar}
+							cartItems={cartItems}
+							deleteProductFromCart={deleteProductFromCart}
 						/>
 					)}
 				</div>

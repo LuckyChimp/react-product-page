@@ -1,6 +1,11 @@
 @use './variables'; /* use variables like this: "color: variables.$clr_prim;" */
 @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
 
+$onHover_bgClr_primBtn: rgba(
+	$color: variables.$clr_prim_orange,
+	$alpha: 0.7
+);
+
 * {
 	box-sizing: border-box;
 	padding: 0;
@@ -186,6 +191,11 @@ body {
 							color: variables.$clr_neut_white;
 							background-color: variables.$clr_prim_orange;
 							border-radius: variables.$br_normal;
+							transition: background-color variables.$trans_duration variables.$trans_mode;
+
+							&:hover {
+								background-color: $onHover_bgClr_primBtn;
+							}
 						}
 
 						.cart-popup-empty-message {
@@ -347,8 +357,12 @@ body {
 					border-radius: variables.$br_normal;
 					box-shadow: 0 20px 40px -15px variables.$clr_prim_orange;
 
+					&:disabled {
+						cursor: not-allowed;
+					}
+
 					&:hover {
-						background-color: rgba($color: variables.$clr_prim_orange, $alpha: 0.7);
+						background-color: $onHover_bgClr_primBtn;
 					}
 
 					.product-add-to-cart-icon * {
