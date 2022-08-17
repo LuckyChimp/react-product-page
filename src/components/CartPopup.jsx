@@ -14,7 +14,9 @@ const CartPopup = ({ onMouseLeave, currencyChar, cartItems, deleteProductFromCar
 						<span className='cart-popup-item-times'>x</span>
 						<span className='cart-popup-item-amount'>{product.amount}</span>
 						<span className='cart-popup-item-total-price'>{`${currencyChar}${(
-							product.pricePerPiece * product.amount
+							product.pricePerPiece *
+							product.discount *
+							product.amount
 						).toFixed(2)}`}</span>
 					</span>
 				</div>
