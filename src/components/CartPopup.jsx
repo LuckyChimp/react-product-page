@@ -4,7 +4,13 @@ const CartPopup = ({ onMouseLeave, currencyChar, cartItems, deleteProductFromCar
 	const CartItem = ({ product }) => {
 		return (
 			<div className='cart-popup-item'>
-				<img src={product.cartThumbnail} alt='product' className='cart-popup-item-image' width={60} height={60} />
+				<img
+					src={product.cartThumbnail}
+					alt='product'
+					className='cart-popup-item-image'
+					width={60}
+					height={60}
+				/>
 				<div className='cart-popup-item-details'>
 					<span className='cart-popup-item-title'>{product.title}</span>
 					<span className='cart-popup-item-price-calculation'>
@@ -20,7 +26,10 @@ const CartPopup = ({ onMouseLeave, currencyChar, cartItems, deleteProductFromCar
 						).toFixed(2)}`}</span>
 					</span>
 				</div>
-				<button className='cart-popup-item-delete-button' onClick={() => deleteProductFromCart(product.id)}>
+				<button
+					className='cart-popup-item-delete-button'
+					onClick={() => deleteProductFromCart(product.id)}
+				>
 					<DeleteIcon className='cart-popup-item-delete-icon' />
 				</button>
 			</div>
@@ -28,14 +37,22 @@ const CartPopup = ({ onMouseLeave, currencyChar, cartItems, deleteProductFromCar
 	};
 
 	return (
-		<div className='cart-popup' onMouseLeave={onMouseLeave}>
+		<div
+			className='cart-popup'
+			onMouseLeave={onMouseLeave}
+		>
 			<h3 className='cart-popup-headline'>Cart</h3>
 			<div className='cart-popup-content'>
 				{cartItems.length > 0 ? (
 					<>
 						<div className='cart-popup-items'>
 							{cartItems.map((cartItem) => {
-								return <CartItem key={cartItem.id} product={cartItem} />;
+								return (
+									<CartItem
+										key={cartItem.id}
+										product={cartItem}
+									/>
+								);
 							})}
 						</div>
 						<button className='cart-popup-checkout'>Checkout</button>

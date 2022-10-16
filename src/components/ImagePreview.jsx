@@ -58,10 +58,16 @@ const ImagePreview = ({ defaultImageId, canOpenLightbox, openLightbox, closeLigh
 				/>
 				{displayControls && (
 					<div className='product-image-controls'>
-						<div className='product-image-control-previous' onClick={() => showPreviousImage()}>
+						<div
+							className='product-image-control-previous'
+							onClick={() => showPreviousImage()}
+						>
 							<PreviousIcon />
 						</div>
-						<div className='product-image-control-next' onClick={() => showNextImage()}>
+						<div
+							className='product-image-control-next'
+							onClick={() => showNextImage()}
+						>
 							<NextIcon />
 						</div>
 					</div>
@@ -86,7 +92,11 @@ const ImagePreview = ({ defaultImageId, canOpenLightbox, openLightbox, closeLigh
 					setHovered(false);
 				}}
 			>
-				<img src={productThumbnails[id - 1]} alt='thumbnail of product' className='product-thumbnail' />
+				<img
+					src={productThumbnails[id - 1]}
+					alt='thumbnail of product'
+					className='product-thumbnail'
+				/>
 				<div
 					className={
 						'product-thumbnail-overlay' +
@@ -100,7 +110,11 @@ const ImagePreview = ({ defaultImageId, canOpenLightbox, openLightbox, closeLigh
 
 	return (
 		<div className='product-images'>
-			<ProductImage id={selectedThumbnailId} canOpenLightbox={canOpenLightbox} openLightbox={openLightbox} />
+			<ProductImage
+				id={selectedThumbnailId}
+				canOpenLightbox={canOpenLightbox}
+				openLightbox={openLightbox}
+			/>
 			<div className='product-thumbnails'>
 				<ProductThumbnail
 					id={1}
@@ -124,7 +138,11 @@ const ImagePreview = ({ defaultImageId, canOpenLightbox, openLightbox, closeLigh
 				/>
 			</div>
 			{displayControls && (
-				<CloseIcon viewBox='0.3 1 13.4 13.4' className='preview-control-close-icon' onClick={() => closeLightbox()} />
+				<CloseIcon
+					viewBox='0.3 1 13.4 13.4'
+					className='preview-control-close-icon'
+					onClick={() => closeLightbox()}
+				/>
 			)}
 		</div>
 	);

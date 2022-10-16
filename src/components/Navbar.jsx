@@ -51,23 +51,43 @@ const Navbar = ({ currencyChar, cartItems, deleteProductFromCart }) => {
 		<nav>
 			<div className='nav-left-container'>
 				<NavLink to='/'>
-					<CompanyLogo alt='sneakers logo' className='nav-logo' width={138} height={20} />
+					<CompanyLogo
+						alt='sneakers logo'
+						className='nav-logo'
+						width={138}
+						height={20}
+					/>
 				</NavLink>
 
 				<div className='nav-links'>
-					<NavLink to='/' className='nav-link nav-link-collections'>
+					<NavLink
+						to='/'
+						className='nav-link nav-link-collections'
+					>
 						Collections
 					</NavLink>
-					<NavLink to='/' className='nav-link nav-link-men'>
+					<NavLink
+						to='/'
+						className='nav-link nav-link-men'
+					>
 						Men
 					</NavLink>
-					<NavLink to='/' className='nav-link nav-link-women'>
+					<NavLink
+						to='/'
+						className='nav-link nav-link-women'
+					>
 						Women
 					</NavLink>
-					<NavLink to='/' className='nav-link nav-link-about'>
+					<NavLink
+						to='/'
+						className='nav-link nav-link-about'
+					>
 						About
 					</NavLink>
-					<NavLink to='/' className='nav-link nav-link-contact'>
+					<NavLink
+						to='/'
+						className='nav-link nav-link-contact'
+					>
 						Contact
 					</NavLink>
 				</div>
@@ -113,7 +133,11 @@ const Navbar = ({ currencyChar, cartItems, deleteProductFromCart }) => {
 					)}
 				</div>
 				<button className='nav-profile'>
-					<img src={Avatar} alt='user avatar' className='nav-profile-avatar' />
+					<img
+						src={Avatar}
+						alt='user avatar'
+						className='nav-profile-avatar'
+					/>
 				</button>
 			</div>
 		</nav>
