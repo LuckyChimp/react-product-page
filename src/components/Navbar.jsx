@@ -1,11 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { ReactComponent as CompanyLogo } from '../assets/images/logo.svg';
-import Avatar from '../assets/images/image-avatar.png';
-import { ReactComponent as CartIcon } from '../assets/images/icon-cart.svg';
+import Sidebar from './Sidebar';
 import CartPopup from './CartPopup';
+import { ReactComponent as CompanyLogo } from '../assets/images/logo.svg';
+import { ReactComponent as CartIcon } from '../assets/images/icon-cart.svg';
+import { ReactComponent as MenuIcon } from '../assets/images/icon-menu.svg';
+import Avatar from '../assets/images/image-avatar.png';
 
 const Navbar = ({ currencyChar, cartItems, deleteProductFromCart }) => {
+	const [sidebarVisible, setSidebarVisible] = useState(false);
 	const [cartPopupVisible, setCartPopupVisible] = useState(false);
 	const [cartPopupPermanent, setCartPopupPermanent] = useState(false);
 	const [cartAmount, setCartAmount] = useState(0);
@@ -47,9 +50,57 @@ const Navbar = ({ currencyChar, cartItems, deleteProductFromCart }) => {
 
 	const ref = useOutsideClick(handleOutsideClick);
 
+	const NavLinks = () => {
+		return (
+			<>
+				<NavLink
+					to='/'
+					className='nav-link nav-link-collections'
+				>
+					Collections
+				</NavLink>
+				<NavLink
+					to='/'
+					className='nav-link nav-link-men'
+				>
+					Men
+				</NavLink>
+				<NavLink
+					to='/'
+					className='nav-link nav-link-women'
+				>
+					Women
+				</NavLink>
+				<NavLink
+					to='/'
+					className='nav-link nav-link-about'
+				>
+					About
+				</NavLink>
+				<NavLink
+					to='/'
+					className='nav-link nav-link-contact'
+				>
+					Contact
+				</NavLink>
+			</>
+		);
+	};
+
 	return (
 		<nav>
 			<div className='nav-left-container'>
+				<button
+					className='nav-sidebar-toggle'
+					onClick={() => setSidebarVisible(true)}
+				>
+					<MenuIcon />
+				</button>
+				<Sidebar
+					NavLinks={NavLinks}
+					hideSidebar={() => setSidebarVisible(false)}
+					className={sidebarVisible ? 'nav-sidebar nav-sidebar--active' : 'nav-sidebar'}
+				/>
 				<NavLink to='/'>
 					<CompanyLogo
 						alt='sneakers logo'
@@ -60,36 +111,7 @@ const Navbar = ({ currencyChar, cartItems, deleteProductFromCart }) => {
 				</NavLink>
 
 				<div className='nav-links'>
-					<NavLink
-						to='/'
-						className='nav-link nav-link-collections'
-					>
-						Collections
-					</NavLink>
-					<NavLink
-						to='/'
-						className='nav-link nav-link-men'
-					>
-						Men
-					</NavLink>
-					<NavLink
-						to='/'
-						className='nav-link nav-link-women'
-					>
-						Women
-					</NavLink>
-					<NavLink
-						to='/'
-						className='nav-link nav-link-about'
-					>
-						About
-					</NavLink>
-					<NavLink
-						to='/'
-						className='nav-link nav-link-contact'
-					>
-						Contact
-					</NavLink>
+					<NavLinks />
 				</div>
 			</div>
 

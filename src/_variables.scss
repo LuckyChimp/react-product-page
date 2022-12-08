@@ -11,8 +11,9 @@ $clr_neut_liGrayBlue: hsl(223, 64%, 98%);
 $clr_neut_white: hsl(0, 0%, 100%);
 $clr_neut_black: hsl(0, 0%, 0%);
 
-$breakpoint_small: 375px;
-$breakpoint_large: 1440px;
+$breakpoint_tablet: 450px;
+$breakpoint_landscape: 800px;
+$breakpoint_computer: 1000px;
 
 $br_normal: 10px;
 $br_small: 4px;

@@ -30,15 +30,27 @@ button {
 }
 
 body {
+	position: relative;
+	min-height: 100vh;
 	font-size: 16px;
-	padding: 0 10rem;
+
+	#root {
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: center;
+	}
 
 	nav {
+		width: 80%;
 		display: flex;
 		flex-flow: row nowrap;
 		justify-content: space-between;
 		align-items: center;
 		border-bottom: 1px solid variables.$clr_neut_grayBlue;
+
+		@media screen and (max-width: calc(variables.$breakpoint_computer - 1px)) {
+			padding: 1rem 0;
+		}
 
 		> * {
 			transition: all variables.$trans_duration variables.$trans_mode;
@@ -50,9 +62,54 @@ body {
 			justify-content: space-between;
 			align-items: center;
 
+			.nav-sidebar-toggle {
+				margin-right: 2rem;
+
+				@media screen and (max-width: calc(variables.$breakpoint_tablet - 1px)) {
+					margin-right: 0.5rem;
+				}
+
+				@media screen and (min-width: variables.$breakpoint_computer) {
+					display: none;
+				}
+			}
+
+			.nav-sidebar {
+				position: fixed;
+				top: 0;
+				left: -100%;
+				bottom: 0;
+				z-index: 2;
+				display: flex;
+				flex-flow: column nowrap;
+				gap: 1rem;
+				padding: 1.5rem 8rem 0 1.5rem;
+				background-color: variables.$clr_neut_white;
+				transition: left variables.$trans_duration variables.$trans_mode;
+
+				&--active {
+					left: 0;
+				}
+
+				.nav-sidebar-close-icon {
+					margin-bottom: 2rem;
+					cursor: pointer;
+				}
+
+				.nav-link {
+					font-weight: bold;
+					color: variables.$clr_neut_daBlue;
+					text-decoration: none;
+				}
+			}
+
 			.nav-logo {
 				max-width: 100%;
 				height: auto;
+
+				@media screen and (max-width: calc(variables.$breakpoint_tablet - 1px)) {
+					transform: scale(0.8);
+				}
 			}
 
 			.nav-links {
@@ -61,6 +118,10 @@ body {
 				justify-content: space-between;
 				align-items: center;
 				margin-left: 4rem;
+
+				@media screen and (max-width: calc(variables.$breakpoint_computer - 1px)) {
+					display: none;
+				}
 
 				.nav-link {
 					padding: 2rem 0;
@@ -113,12 +174,12 @@ body {
 				.cart-popup {
 					position: absolute;
 					width: 360px;
-					margin-top: 1em;
+					margin-top: 1rem;
 					margin-left: calc(-360px / 2);
 					border-radius: variables.$br_normal;
 					box-shadow: 0px 15px 30px -10px #949494;
 					background-color: variables.$clr_neut_white;
-					z-index: 2;
+					z-index: 1;
 
 					> * {
 						padding: 1.5rem;
@@ -152,12 +213,12 @@ body {
 									}
 
 									.cart-popup-item-title {
-										margin-bottom: 0.5em;
+										margin-bottom: 0.5rem;
 									}
 
 									.cart-popup-item-price-calculation {
 										*:not(:last-child) {
-											margin-right: 0.5em;
+											margin-right: 0.5rem;
 										}
 
 										.cart-popup-item-total-price {
@@ -185,7 +246,7 @@ body {
 						.cart-popup-checkout {
 							width: 100%;
 							margin-top: 1.5rem;
-							padding: 1em 0;
+							padding: 1rem 0;
 							font-size: 1rem;
 							font-weight: bold;
 							color: variables.$clr_neut_white;
@@ -213,13 +274,21 @@ body {
 			.nav-profile-avatar {
 				box-sizing: content-box;
 				width: 50px;
-				height: 50px;
+				height: auto;
 				margin-left: 2rem;
 				border: 2px solid transparent;
 				border-radius: 50%;
 
 				&:hover {
 					border: 2px solid variables.$clr_prim_orange;
+				}
+
+				@media screen and (max-width: calc(variables.$breakpoint_tablet - 1px)) {
+					margin-left: 1rem;
+				}
+
+				@media screen and (max-width: calc(variables.$breakpoint_computer - 1px)) {
+					width: 30px;
 				}
 			}
 		}
@@ -230,8 +299,20 @@ body {
 		flex-flow: row nowrap;
 		justify-content: center;
 		align-items: center;
-		gap: 10%;
-		padding: 5rem 2.5rem 0 2.5rem;
+		margin: 5rem 0 10rem 0;
+		gap: 5%;
+		padding: 0 5rem;
+
+		@media screen and (max-width: calc(variables.$breakpoint_landscape - 1px)) {
+			flex-flow: column;
+			margin-top: 2rem;
+			padding: 0 2rem;
+			gap: 4rem;
+		}
+
+		@media screen and (min-width: variables.$breakpoint_landscape) {
+			padding: 0;
+		}
 
 		.product-images {
 			flex: 35% 0 0;
@@ -290,8 +371,7 @@ body {
 					position: absolute;
 					top: 0.1rem;
 					margin-left: 1rem;
-					padding: 0.2em 0.5em;
-					font-size: 1rem;
+					padding: 0.2rem 0.5rem;
 					font-weight: bold;
 					color: variables.$clr_prim_orange;
 					background-color: variables.$clr_prim_paleOrange;
@@ -338,7 +418,7 @@ body {
 
 					.product-amount-control-display {
 						flex: 40%;
-						padding: 0 1em;
+						padding: 0 1rem;
 						font-weight: bold;
 						text-align: center;
 						cursor: default;
@@ -373,7 +453,7 @@ body {
 					.product-add-to-cart-text {
 						font-size: 1rem;
 						font-weight: bold;
-						margin-left: 0.5em;
+						margin-left: 0.5rem;
 						color: variables.$clr_neut_white;
 					}
 				}
@@ -384,7 +464,7 @@ body {
 	footer {
 		width: 400px;
 		position: absolute;
-		bottom: 0.5em;
+		bottom: 0.5rem;
 		left: calc(50% - (400px / 2));
 
 		.attribution {
@@ -549,4 +629,5 @@ body {
 	}
 }
 
-// TODO make website completely responsive
+// TODO if screen width is lower then $breakpoint_tablet (=smartphone) change image preview, nav margin (left and rigth), nav border, main margin-top, image preview margin-top and add-to-cart button if screen width gets very low
+// TODO if screen width is lower then $breakpoint_landscape (=in portrait "mode") change image preview width, position add-to-cart-button under amount controller

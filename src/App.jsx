@@ -23,7 +23,7 @@ function App() {
 	const [product, setProduct] = useState(
 		new Product(
 			1,
-			'Fall Limited Edition Sneakers',
+			'Fall Limited Edition\nSneakers',
 			'Sneaker Company',
 			"These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.",
 			250,
