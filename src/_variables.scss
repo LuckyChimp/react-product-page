@@ -21,3 +21,26 @@ $br_large: 14px;
 
 $trans_duration: 200ms;
 $trans_mode: ease-in-out;
+
+:export {
+	clr_prim_orange: $clr_prim_orange;
+	clr_prim_paleOrange: $clr_prim_paleOrange;
+
+	clr_neut_daBlue: $clr_neut_daBlue;
+	clr_neut_daGrayBlue: $clr_neut_daGrayBlue;
+	clr_neut_grayBlue: $clr_neut_grayBlue;
+	clr_neut_liGrayBlue: $clr_neut_liGrayBlue;
+	clr_neut_white: $clr_neut_white;
+	clr_neut_black: $clr_neut_black;
+
+	breakpoint_tablet: $breakpoint_tablet;
+	breakpoint_landscape: $breakpoint_landscape;
+	breakpoint_computer: $breakpoint_computer;
+
+	br_normal: $br_normal;
+	br_small: $br_small;
+	br_large: $br_large;
+
+	trans_duration: $trans_duration;
+	trans_mode: $trans_mode;
+}
