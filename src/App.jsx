@@ -2,7 +2,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react';
 import './App.scss';
 import Navbar from './components/Navbar';
-import ProductDetails from './components/ProductDetails';
+import ProductPage from './components/ProductPage';
 import Lightbox from './components/Lightbox';
 
 import Product from './classes/Product';
@@ -87,7 +87,7 @@ function App() {
 				deleteProductFromCart={(productId) => deleteProductFromCart(productId)}
 			/>
 
-			<ProductDetails
+			<ProductPage
 				openLightbox={(id) => openLightbox(id)}
 				currencyChar={currencyChar}
 				product={product}

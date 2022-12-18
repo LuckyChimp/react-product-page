@@ -48,8 +48,18 @@ body {
 		align-items: center;
 		border-bottom: 1px solid variables.$clr_neut_grayBlue;
 
+		@media screen and (max-width: calc(variables.$breakpoint_landscape - 1px)) {
+			width: 100%;
+			$padding: 1.5rem;
+			padding-left: $padding;
+			padding-right: $padding;
+			border: none;
+		}
+
 		@media screen and (max-width: calc(variables.$breakpoint_computer - 1px)) {
-			padding: 1rem 0;
+			$padding: 1rem;
+			padding-top: $padding;
+			padding-bottom: $padding;
 		}
 
 		> * {
@@ -65,8 +75,8 @@ body {
 			.nav-sidebar-toggle {
 				margin-right: 2rem;
 
-				@media screen and (max-width: calc(variables.$breakpoint_tablet - 1px)) {
-					margin-right: 0.5rem;
+				@media screen and (max-width: variables.$breakpoint_landscape) {
+					margin-right: 1rem;
 				}
 
 				@media screen and (min-width: variables.$breakpoint_computer) {
@@ -106,10 +116,6 @@ body {
 			.nav-logo {
 				max-width: 100%;
 				height: auto;
-
-				@media screen and (max-width: calc(variables.$breakpoint_tablet - 1px)) {
-					transform: scale(0.8);
-				}
 			}
 
 			.nav-links {
@@ -303,15 +309,19 @@ body {
 		gap: 5%;
 		padding: 0 5rem;
 
+		@media screen and (min-width: variables.$breakpoint_landscape) {
+			padding: 0;
+		}
+
 		@media screen and (max-width: calc(variables.$breakpoint_landscape - 1px)) {
 			flex-flow: column;
-			margin-top: 2rem;
-			padding: 0 2rem;
+			margin-top: 0;
+			padding: 0;
 			gap: 4rem;
 		}
 
-		@media screen and (min-width: variables.$breakpoint_landscape) {
-			padding: 0;
+		@media screen and (max-width: calc(variables.$breakpoint_tablet - 1px)) {
+			gap: 2rem;
 		}
 
 		.product-images {
@@ -337,6 +347,10 @@ body {
 		.product-details {
 			flex: 35% 0 0;
 
+			@media screen and (max-width: calc(variables.$breakpoint_landscape - 1px)) {
+				padding: 0 2rem;
+			}
+
 			.product-text-container {
 				.product-producer {
 					margin-bottom: 1.5rem;
@@ -360,30 +374,41 @@ body {
 			}
 
 			.product-price-container {
-				position: relative;
+				display: flex;
+				flex-flow: column wrap;
+				justify-content: center;
 				margin: 1.5rem 0 2rem 0;
 
-				.product-current-price {
-					display: inline-block;
+				@media screen and (max-width: calc(variables.$breakpoint_tablet - 1px)) {
+					flex-direction: row;
+					justify-content: space-between;
+					align-items: center;
 				}
 
-				.product-discount {
-					position: absolute;
-					top: 0.1rem;
-					margin-left: 1rem;
-					padding: 0.2rem 0.5rem;
-					font-weight: bold;
-					color: variables.$clr_prim_orange;
-					background-color: variables.$clr_prim_paleOrange;
-					border-radius: variables.$br_small;
+				.product-price-left-container {
+					display: flex;
+					flex-flow: row nowrap;
+					align-items: center;
+
+					.product-discount {
+						margin-left: 1rem;
+						padding: 0.2rem 0.5rem;
+						font-weight: bold;
+						color: variables.$clr_prim_orange;
+						background-color: variables.$clr_prim_paleOrange;
+						border-radius: variables.$br_small;
+					}
 				}
 
-				.product-original-price {
-					display: block;
+				.product-original-price.product-price-right {
 					margin-top: 0.5rem;
 					font-weight: bold;
 					text-decoration: line-through;
 					color: variables.$clr_neut_grayBlue;
+
+					@media screen and (max-width: calc(variables.$breakpoint_tablet - 1px)) {
+						margin-top: 0;
+					}
 				}
 			}
 
@@ -391,7 +416,10 @@ body {
 				display: flex;
 				flex-flow: row wrap;
 				gap: 3%;
-				height: 3rem;
+
+				@media screen and (max-width: calc(variables.$breakpoint_tablet - 1px)) {
+					flex-direction: column;
+				}
 
 				.product-amount-control {
 					flex: 30%;
@@ -401,6 +429,10 @@ body {
 					align-items: center;
 					background-color: variables.$clr_neut_liGrayBlue;
 					border-radius: 6px;
+
+					@media screen and (max-width: calc(variables.$breakpoint_tablet - 1px)) {
+						flex: 100%;
+					}
 
 					.product-amount-control-decrease,
 					.product-amount-control-increase {
@@ -432,6 +464,7 @@ body {
 					flex-flow: row;
 					justify-content: center;
 					align-items: center;
+					padding: 1rem 2rem;
 					background-color: variables.$clr_prim_orange;
 					transition: background-color variables.$trans_duration variables.$trans_mode;
 					border-radius: variables.$br_normal;
@@ -443,6 +476,11 @@ body {
 
 					&:hover {
 						background-color: $onHover_bgClr_primBtn;
+					}
+
+					@media screen and (max-width: calc(variables.$breakpoint_tablet - 1px)) {
+						flex: 100%;
+						margin-top: 1rem;
 					}
 
 					.product-add-to-cart-icon * {
@@ -529,6 +567,10 @@ body {
 			height: auto;
 			display: block;
 			border-radius: variables.$br_large;
+
+			@media screen and (max-width: calc(variables.$breakpoint_landscape - 1px)) {
+				border-radius: 0;
+			}
 		}
 
 		.product-image-controls {
@@ -561,12 +603,20 @@ body {
 				left: 0;
 				top: 50%;
 				transform: translate(-50%, -50%);
+
+				@media screen and (max-width: calc(variables.$breakpoint_tablet - 1px)) {
+					transform: translate(50%, -50%);
+				}
 			}
 
 			.product-image-control-next {
 				right: 0;
 				top: 50%;
 				transform: translate(50%, -50%);
+
+				@media screen and (max-width: calc(variables.$breakpoint_tablet - 1px)) {
+					transform: translate(-50%, -50%);
+				}
 			}
 		}
 	}
@@ -576,6 +626,14 @@ body {
 		flex-flow: row nowrap;
 		justify-content: space-between;
 		align-items: center;
+
+		@media screen and (max-width: calc(variables.$breakpoint_tablet - 1px)) {
+			display: none;
+		}
+
+		@media screen and (max-width: calc(variables.$breakpoint_landscape - 1px)) {
+			padding: 0 2rem;
+		}
 
 		.product-thumbnail-container {
 			position: relative;
@@ -628,6 +686,3 @@ body {
 		}
 	}
 }
-
-// TODO if screen width is lower then $breakpoint_tablet (=smartphone) change nav margin (left and rigth), nav border, main margin-top, image preview margin-top and add-to-cart button if screen width gets very low
-// TODO if screen width is lower then $breakpoint_landscape (=in portrait "mode") change image preview and -width, position add-to-cart-button under amount controller

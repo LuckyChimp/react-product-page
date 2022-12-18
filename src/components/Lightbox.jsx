@@ -3,8 +3,8 @@ import scssVariables from '../_variables.scss';
 
 const Lightbox = ({ visible, imageId, closeLightbox }) => {
 	// only allow the Lightbox to show up, if the ImagePreview is not large enough (so, only in desktop and landscpae and not in smartphone mode)
-	const portraitMode = window.innerWidth < parseInt(String(scssVariables.breakpoint_landscape).replace('px', ''));
-	visible = visible && !portraitMode;
+	const isPortraitMode = window.innerWidth < parseInt(String(scssVariables.breakpoint_landscape).replace('px', ''));
+	visible = visible && !isPortraitMode;
 
 	return (
 		<div

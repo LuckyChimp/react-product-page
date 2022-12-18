@@ -1,7 +1,27 @@
+import { useState, useEffect } from 'react';
+
 import ImagePreview from './ImagePreview';
 import { ReactComponent as CartIcon } from '../assets/images/icon-cart.svg';
+import scssVariables from '../_variables.scss';
 
-const ProductDetails = ({ openLightbox, currencyChar, product, changeProductAmount, addProductToCart }) => {
+const ProductPage = ({ openLightbox, currencyChar, product, changeProductAmount, addProductToCart }) => {
+	const [portraitMode, setPortraitMode] = useState(isPortraitMode());
+	useEffect(() => {
+		const onWindowResize = () => {
+			setPortraitMode(isPortraitMode());
+		};
+
+		window.addEventListener('resize', onWindowResize);
+
+		return () => {
+			window.removeEventListener('resize', onWindowResize);
+		};
+	}, []);
+
+	function isPortraitMode() {
+		return window.innerWidth < parseInt(String(scssVariables.breakpoint_tablet).replace('px', ''));
+	}
+
 	const onAmountControlClick = (changeByValue) => {
 		// prevents the amount from taking on negative values
 		if (product.amount + changeByValue >= 0) {
@@ -15,7 +35,7 @@ const ProductDetails = ({ openLightbox, currencyChar, product, changeProductAmou
 				canOpenLightbox={true}
 				openLightbox={openLightbox}
 				defaultImageId={1}
-				displayControls={false}
+				displayControls={portraitMode}
 			/>
 			<div className='product-details'>
 				<div className='product-text-container'>
@@ -24,11 +44,15 @@ const ProductDetails = ({ openLightbox, currencyChar, product, changeProductAmou
 					<p className='product-description'>{product.description}</p>
 				</div>
 				<div className='product-price-container'>
-					<h2 className='product-current-price'>{`${currencyChar}${(
-						product.pricePerPiece.toFixed(2) * product.discount
-					).toFixed(2)}`}</h2>
-					<span className='product-discount'>{`${product.discount * 100}%`}</span>
-					<span className='product-original-price'>{`${currencyChar}${product.pricePerPiece.toFixed(2)}`}</span>
+					<div className='product-price-left-container'>
+						<h2 className='product-current-price'>{`${currencyChar}${(
+							product.pricePerPiece.toFixed(2) * product.discount
+						).toFixed(2)}`}</h2>
+						<span className='product-discount'>{`${product.discount * 100}%`}</span>
+					</div>
+					<span className='product-original-price product-price-right'>{`${currencyChar}${product.pricePerPiece.toFixed(
+						2
+					)}`}</span>
 				</div>
 				<div className='product-controls-container'>
 					<div className='product-amount-control'>
@@ -60,4 +84,4 @@ const ProductDetails = ({ openLightbox, currencyChar, product, changeProductAmou
 	);
 };
 
-export default ProductDetails;
+export default ProductPage;
