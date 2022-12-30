@@ -1,6 +1,7 @@
 import { BrowserRouter as Router } from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react';
 import './App.scss';
+import scssVariables from './_variables.scss';
 import Navbar from './components/Navbar';
 import ProductPage from './components/ProductPage';
 import Lightbox from './components/Lightbox';
@@ -39,6 +40,7 @@ function App() {
 		// avoid too many rerenders
 		if (lightboxStates.visible) {
 			setLightboxStates({ ...lightboxStates, visible: false });
+			document.body.classList.remove('prevent-scrolling');
 		}
 	}, [lightboxStates]);
 
@@ -51,17 +53,18 @@ function App() {
 
 		window.addEventListener('keydown', handleKeyDown);
 
-		lightboxStates.visible
-			? document.body.classList.add('prevent-scrolling')
-			: document.body.classList.remove('prevent-scrolling');
-
 		return () => {
 			window.removeEventListener('keydown', handleKeyDown);
 		};
 	}, [lightboxStates, closeLightbox]);
 
 	const openLightbox = (id) => {
-		setLightboxStates({ ...lightboxStates, imageId: id, visible: true });
+		// only allow the Lightbox to show up, if the ImagePreview is not large enough (so, only in desktop and landscpae and not in smartphone mode)
+		const isPortraitMode = window.innerWidth < parseInt(String(scssVariables.breakpoint_landscape).replace('px', ''));
+		if (!isPortraitMode) {
+			document.body.classList.add('prevent-scrolling');
+			setLightboxStates({ ...lightboxStates, imageId: id, visible: true });
+		}
 	};
 
 	const changeProductAmount = (changeBy) => {

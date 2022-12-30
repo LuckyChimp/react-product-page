@@ -75,7 +75,7 @@ body {
 			.nav-sidebar-toggle {
 				margin-right: 2rem;
 
-				@media screen and (max-width: variables.$breakpoint_landscape) {
+				@media screen and (max-width: calc(variables.$breakpoint_landscape - 1px)) {
 					margin-right: 1rem;
 				}
 
