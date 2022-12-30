@@ -34,6 +34,10 @@ body {
 	min-height: 100vh;
 	font-size: 16px;
 
+	&.prevent-scrolling {
+		overflow: hidden;
+	}
+
 	#root {
 		display: flex;
 		flex-flow: column nowrap;
@@ -60,10 +64,6 @@ body {
 			$padding: 1rem;
 			padding-top: $padding;
 			padding-bottom: $padding;
-		}
-
-		> * {
-			transition: all variables.$trans_duration variables.$trans_mode;
 		}
 
 		.nav-left-container {
@@ -135,6 +135,7 @@ body {
 					text-decoration: none;
 					font-size: 0.9rem;
 					border-bottom: 4px solid transparent;
+					transition: all variables.$trans_duration_nav variables.$trans_mode;
 
 					&:hover {
 						border-bottom: 4px solid variables.$clr_prim_orange;
@@ -159,6 +160,10 @@ body {
 					position: relative;
 
 					.nav-shopping-cart-icon {
+						* {
+							transition: all variables.$trans_duration variables.$trans_mode;
+						}
+
 						&:hover * {
 							fill: variables.$clr_neut_daBlue;
 						}
@@ -284,6 +289,7 @@ body {
 				margin-left: 2rem;
 				border: 2px solid transparent;
 				border-radius: 50%;
+				transition: all variables.$trans_duration variables.$trans_mode;
 
 				&:hover {
 					border: 2px solid variables.$clr_prim_orange;
@@ -325,7 +331,7 @@ body {
 		}
 
 		.product-images {
-			flex: 35% 0 0;
+			flex: 30% 0 0;
 
 			.product-image {
 			}
@@ -345,7 +351,7 @@ body {
 		}
 
 		.product-details {
-			flex: 35% 0 0;
+			flex: 30% 0 0;
 
 			@media screen and (max-width: calc(variables.$breakpoint_landscape - 1px)) {
 				padding: 0 2rem;

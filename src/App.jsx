@@ -51,6 +51,10 @@ function App() {
 
 		window.addEventListener('keydown', handleKeyDown);
 
+		lightboxStates.visible
+			? document.body.classList.add('prevent-scrolling')
+			: document.body.classList.remove('prevent-scrolling');
+
 		return () => {
 			window.removeEventListener('keydown', handleKeyDown);
 		};
