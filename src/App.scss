@@ -185,6 +185,7 @@ body {
 				.cart-popup {
 					position: absolute;
 					width: 360px;
+					margin-left: calc(-360px / 2);
 					margin-top: 1rem;
 					border-radius: variables.$br_normal;
 					box-shadow: 0px 15px 30px -10px #949494;
@@ -197,6 +198,7 @@ body {
 
 					@media screen and (max-width: calc(variables.$breakpoint_tablet - 1px)) {
 						width: initial;
+						margin-left: 0;
 						top: 4rem;
 						left: 1rem;
 						right: 1rem;
