@@ -99,7 +99,7 @@ const Navbar = ({ currencyChar, cartItems, deleteProductFromCart }) => {
 				<Sidebar
 					NavLinks={NavLinks}
 					hideSidebar={() => setSidebarVisible(false)}
-					className={sidebarVisible ? 'nav-sidebar nav-sidebar--active' : 'nav-sidebar'}
+					visible={sidebarVisible}
 				/>
 				<NavLink to='/'>
 					<CompanyLogo
