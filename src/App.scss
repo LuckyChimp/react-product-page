@@ -6,6 +6,11 @@ $onHover_bgClr_primBtn: rgba(
 	$alpha: 0.7
 );
 
+$clr_gray_bodyOverlay: rgba(
+	$color: variables.$clr_neut_black,
+	$alpha: 0.75
+);
+
 * {
 	box-sizing: border-box;
 	padding: 0;
@@ -84,32 +89,46 @@ body {
 				}
 			}
 
-			.nav-sidebar {
-				position: fixed;
-				top: 0;
-				left: -100%;
-				bottom: 0;
-				z-index: 2;
-				display: flex;
-				flex-flow: column nowrap;
-				gap: 1rem;
-				padding: 1.5rem 8rem 0 1.5rem;
-				background-color: variables.$clr_neut_white;
-				transition: left variables.$trans_duration variables.$trans_mode;
+			.nav-sidebar-container {
+				background-color: $clr_gray_bodyOverlay;
+				z-index: 1;
+				transition: background-color variables.$trans_duration variables.$trans_duration_quick;
+
+				.nav-sidebar {
+					position: fixed;
+					top: 0;
+					left: -100%;
+					bottom: 0;
+					z-index: 2;
+					display: flex;
+					flex-flow: column nowrap;
+					gap: 1rem;
+					padding: 1.5rem 8rem 0 1.5rem;
+					background-color: variables.$clr_neut_white;
+					transition: left variables.$trans_duration variables.$trans_mode;
+
+					.nav-sidebar-close-icon {
+						margin-bottom: 2rem;
+						cursor: pointer;
+					}
+
+					.nav-link {
+						font-weight: bold;
+						color: variables.$clr_neut_daBlue;
+						text-decoration: none;
+					}
+				}
 
 				&--active {
+					position: fixed;
 					left: 0;
-				}
+					right: 0;
+					top: 0;
+					bottom: 0;
 
-				.nav-sidebar-close-icon {
-					margin-bottom: 2rem;
-					cursor: pointer;
-				}
-
-				.nav-link {
-					font-weight: bold;
-					color: variables.$clr_neut_daBlue;
-					text-decoration: none;
+					.nav-sidebar {
+						left: 0;
+					}
 				}
 			}
 
@@ -135,7 +154,7 @@ body {
 					text-decoration: none;
 					font-size: 0.9rem;
 					border-bottom: 4px solid transparent;
-					transition: all variables.$trans_duration_nav variables.$trans_mode;
+					transition: all variables.$trans_duration_quick variables.$trans_mode;
 
 					&:hover {
 						border-bottom: 4px solid variables.$clr_prim_orange;
@@ -544,7 +563,7 @@ body {
 		flex-flow: column nowrap;
 		justify-content: center;
 		align-items: center;
-		background-color: rgba($color: variables.$clr_neut_black, $alpha: 0.75);
+		background-color: $clr_gray_bodyOverlay;
 
 		.product-images {
 			width: 30%;
