@@ -40,7 +40,7 @@ function App() {
 		// avoid too many rerenders
 		if (lightboxStates.visible) {
 			setLightboxStates({ ...lightboxStates, visible: false });
-			document.body.classList.remove('prevent-scrolling');
+			document.body.classList.remove('body--prevent-scrolling');
 		}
 	}, [lightboxStates]);
 
@@ -62,7 +62,7 @@ function App() {
 		// only allow the Lightbox to show up, if the ImagePreview is not large enough (so, only in desktop and landscpae and not in smartphone mode)
 		const isPortraitMode = window.innerWidth < parseInt(String(scssVariables.breakpoint_landscape).replace('px', ''));
 		if (!isPortraitMode) {
-			document.body.classList.add('prevent-scrolling');
+			document.body.classList.add('body--prevent-scrolling');
 			setLightboxStates({ ...lightboxStates, imageId: id, visible: true });
 		}
 	};
