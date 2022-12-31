@@ -186,11 +186,21 @@ body {
 					position: absolute;
 					width: 360px;
 					margin-top: 1rem;
-					margin-left: calc(-360px / 2);
 					border-radius: variables.$br_normal;
 					box-shadow: 0px 15px 30px -10px #949494;
 					background-color: variables.$clr_neut_white;
 					z-index: 1;
+
+					@media screen and (max-width: calc(variables.$breakpoint_computer - 1px)) {
+						right: 2rem;
+					}
+
+					@media screen and (max-width: calc(variables.$breakpoint_tablet - 1px)) {
+						width: initial;
+						top: 4rem;
+						left: 1rem;
+						right: 1rem;
+					}
 
 					> * {
 						padding: 1.5rem;
