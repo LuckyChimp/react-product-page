@@ -400,8 +400,11 @@ body {
 
 				.product-title {
 					margin-bottom: 2.5rem;
-					font-size: 3rem;
 					line-height: 1em;
+
+					@media screen and (min-width: variables.$breakpoint_tablet) {
+						font-size: 3rem;
+					}
 				}
 
 				.product-description {
