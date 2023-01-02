@@ -99,7 +99,7 @@ I have learned to import SVG files as [ReactComponents](https://blog.logrocket.c
 
 ### Useful resources
 
-- [Hammer.js](https://hammerjs.github.io/) - It's the first time I worked with this library. Hammer.js ist very very simple and intuitive to work with.
+- [Hammer.js](https://hammerjs.github.io/) - It's the first time I worked with this library. Hammer.js is very very simple and intuitive to work with.
 
 ## Author
 
