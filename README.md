@@ -31,52 +31,52 @@ Users should be able to:
 
 #### Desktop
 
-![Desktop](./screenshots/screenshot-desktop.png 'Desktop')
+<img src='./screenshots/screenshot-desktop.png' alt='Desktop' style='width: 50%;'></img>
 <br>
 
 #### Desktop with hovering the avatar
 
-![Desktop with hovering the avatar](./screenshots/screenshot-desktop-with-avatar-hover.png 'Desktop with hovering the avatar')
+<img src='./screenshots/screenshot-desktop-with-avatar-hover.png' alt='Desktop with hovering the avatar' style='width: 60%;'></img>
 <br>
 
 #### Desktop with opened lightbox
 
-![Desktop with opened lightbox](./screenshots/screenshot-desktop-with-lightbox.png 'Desktop with opened lightbox')
+<img src='./screenshots/screenshot-desktop-with-lightbox.png' alt='Desktop with opened lightbox' style='width: 60%;'></img>
 <br>
 
 #### Desktop with cart popup
 
-![Desktop with cart popup](./screenshots/screenshot-desktop-with-cart-popup.png 'Desktop with cart popup')
+<img src='./screenshots/screenshot-desktop-with-cart-popup.png' alt='Desktop with cart popup' style='width: 60%;'></img>
 <br>
 
 #### Desktop with filled cart popup
 
-![Desktop with filled cart popup](./screenshots/screenshot-desktop-with-cart-popup-filled.png 'Desktop with filled cart popup')
+<img src='./screenshots/screenshot-desktop-with-cart-popup-filled.png' alt='Desktop with filled cart popup' style='width: 60%;'></img>
 <br>
 
 #### Tablet with filled cart popup
 
-![Tablet with filled cart popup](./screenshots/screenshot-tablet-with-cart-popup-filled.png 'Tablet with filled cart popup')
+<img src='./screenshots/screenshot-tablet-with-cart-popup-filled.png' alt='Tablet with filled cart popup' style='width: 40%;'></img>
 <br>
 
 #### Mobile
 
-![Mobile](./screenshots/screenshot-mobile.png 'Mobile')
+<img src='./screenshots/screenshot-mobile.png' alt='Mobile' style='width: 20%;'></img>
 <br>
 
 #### Mobile with opened sidebar
 
-![Mobile with opened sidebar](./screenshots/screenshot-mobile-with-opened-sidebar.png 'Mobile with opened sidebar')
+<img src='./screenshots/screenshot-mobile-with-opened-sidebar.png' alt='Mobile with opened sidebar' style='width: 20%;'></img>
 <br>
 
 #### Mobile with cart popup
 
-![Mobile with cart popup](./screenshots/screenshot-mobile-with-cart-popup.png 'Mobile with cart popup')
+<img src='./screenshots/screenshot-mobile-with-cart-popup.png' alt='Mobile with cart popup' style='width: 20%;'></img>
 <br>
 
 #### Mobile with filled cart popup
 
-![Mobile with filled cart popup](./screenshots/screenshot-mobile-with-cart-popup-filled.png 'Mobile with filled cart popup')
+<img src='./screenshots/screenshot-mobile-with-cart-popup-filled.png' alt='Mobile with filled cart popup' style='width: 20%;'></img>
 <br>
 
 ### Link
@@ -99,7 +99,7 @@ I have learned to import SVG files as [ReactComponents](https://blog.logrocket.c
 
 ### Useful resources
 
-- [Hammer.js](https://hammerjs.github.io/) - It's the first time I worked with this library. Hammer.js ist very very simple and intuitive to work with.
+- [Hammer.js](https://hammerjs.github.io/) - It's the first time I worked with this library. Hammer.js is very very simple and intuitive to work with.
 
 ## Author
 
