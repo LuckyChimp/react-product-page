@@ -61,7 +61,7 @@ Users should be able to:
 
 #### Mobile
 
-![Mobile](./screenshots/screenshot-mobile.png 'Mobile')
+<img src='./screenshots/screenshot-mobile.png' alt='Mobile'></img>
 <br>
 
 #### Mobile with opened sidebar
