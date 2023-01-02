@@ -102,7 +102,10 @@ const Navbar = ({ currencyChar, cartItems, deleteProductFromCart }) => {
 					hideSidebar={() => setSidebarVisible(false)}
 					visible={sidebarVisible}
 				/>
-				<NavLink to='/'>
+				<NavLink
+					to='/'
+					aria-label='Company logo'
+				>
 					<CompanyLogo
 						className='nav-logo'
 						width={138}
