@@ -59,6 +59,7 @@ const ProductPage = ({ openLightbox, currencyChar, product, changeProductAmount,
 						<button
 							className='product-amount-control-decrease'
 							onClick={() => onAmountControlClick(-1)}
+							aria-label='Decrease amount'
 						>
 							-
 						</button>
@@ -66,6 +67,7 @@ const ProductPage = ({ openLightbox, currencyChar, product, changeProductAmount,
 						<button
 							className='product-amount-control-increase'
 							onClick={() => onAmountControlClick(+1)}
+							aria-label='Increase amount'
 						>
 							+
 						</button>

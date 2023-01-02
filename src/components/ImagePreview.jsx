@@ -58,7 +58,7 @@ const ImagePreview = ({ defaultImageId, canOpenLightbox, openLightbox, closeLigh
 			<div className='product-image-container'>
 				<ReactHammer onSwipe={(event) => onSwipe(event)}>
 					<img
-						src={productImages[id - 1]}
+						src={productImages[id - 1] || ''}
 						alt='product'
 						className='product-image'
 						style={{ cursor: canOpenLightbox ? 'pointer' : 'initial' }}

@@ -93,6 +93,7 @@ const Navbar = ({ currencyChar, cartItems, deleteProductFromCart }) => {
 				<button
 					className='nav-sidebar-toggle'
 					onClick={() => setSidebarVisible(true)}
+					aria-label='Sidebar toggle'
 				>
 					<MenuIcon />
 				</button>
@@ -103,7 +104,6 @@ const Navbar = ({ currencyChar, cartItems, deleteProductFromCart }) => {
 				/>
 				<NavLink to='/'>
 					<CompanyLogo
-						alt='sneakers logo'
 						className='nav-logo'
 						width={138}
 						height={20}
@@ -139,6 +139,7 @@ const Navbar = ({ currencyChar, cartItems, deleteProductFromCart }) => {
 							}
 						}}
 						ref={ref}
+						aria-label='Shopping cart'
 					>
 						<CartIcon className='nav-shopping-cart-icon' />
 						{cartAmount > 0 && <span className='nav-shopping-cart-amount-badge'>{cartAmount}</span>}
@@ -154,7 +155,10 @@ const Navbar = ({ currencyChar, cartItems, deleteProductFromCart }) => {
 						/>
 					)}
 				</div>
-				<button className='nav-profile'>
+				<button
+					className='nav-profile'
+					aria-label='Profile'
+				>
 					<img
 						src={Avatar}
 						alt='user avatar'

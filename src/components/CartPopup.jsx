@@ -29,6 +29,7 @@ const CartPopup = ({ onMouseLeave, currencyChar, cartItems, deleteProductFromCar
 				<button
 					className='cart-popup-item-delete-button'
 					onClick={() => deleteProductFromCart(product.id)}
+					aria-label='Delete'
 				>
 					<DeleteIcon className='cart-popup-item-delete-icon' />
 				</button>
