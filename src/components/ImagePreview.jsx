@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import ReactHammer from 'react-hammerjs';
+import { useEffect, useState } from 'react';
+import { useSwipeable } from 'react-swipeable';
 
-import ProductImage1 from '../assets/images/image-product-1.jpg';
-import ProductImage2 from '../assets/images/image-product-2.jpg';
-import ProductImage3 from '../assets/images/image-product-3.jpg';
-import ProductImage4 from '../assets/images/image-product-4.jpg';
-import ProductThumbnail1 from '../assets/images/image-product-1-thumbnail.jpg';
-import ProductThumbnail2 from '../assets/images/image-product-2-thumbnail.jpg';
-import ProductThumbnail3 from '../assets/images/image-product-3-thumbnail.jpg';
-import ProductThumbnail4 from '../assets/images/image-product-4-thumbnail.jpg';
-import { ReactComponent as PreviousIcon } from '../assets/images/icon-previous.svg';
-import { ReactComponent as NextIcon } from '../assets/images/icon-next.svg';
 import { ReactComponent as CloseIcon } from '../assets/images/icon-close.svg';
+import { ReactComponent as NextIcon } from '../assets/images/icon-next.svg';
+import { ReactComponent as PreviousIcon } from '../assets/images/icon-previous.svg';
+import ProductThumbnail1 from '../assets/images/image-product-1-thumbnail.jpg';
+import ProductImage1 from '../assets/images/image-product-1.jpg';
+import ProductThumbnail2 from '../assets/images/image-product-2-thumbnail.jpg';
+import ProductImage2 from '../assets/images/image-product-2.jpg';
+import ProductThumbnail3 from '../assets/images/image-product-3-thumbnail.jpg';
+import ProductImage3 from '../assets/images/image-product-3.jpg';
+import ProductThumbnail4 from '../assets/images/image-product-4-thumbnail.jpg';
+import ProductImage4 from '../assets/images/image-product-4.jpg';
 
 const ImagePreview = ({ defaultImageId, canOpenLightbox, openLightbox, closeLightbox, displayControls }) => {
 	const [selectedThumbnailId, setSelectedThumbnailId] = useState(1);
@@ -44,32 +44,26 @@ const ImagePreview = ({ defaultImageId, canOpenLightbox, openLightbox, closeLigh
 	};
 
 	const ProductImage = ({ id, canOpenLightbox, openLightbox }) => {
-		const onSwipe = (event) => {
-			const DIRECTIONS = { LEFT: 2, RIGHT: 4 };
-
-			if (event.direction === DIRECTIONS.LEFT) {
-				showNextImage();
-			} else if (event.direction === DIRECTIONS.RIGHT) {
-				showPreviousImage();
-			}
-		};
+		const handlers = useSwipeable({
+			onSwipedLeft: () => showNextImage(),
+			onSwipedRight: () => showPreviousImage()
+		});
 
 		return (
 			<div className='product-image-container'>
-				<ReactHammer onSwipe={(event) => onSwipe(event)}>
-					<img
-						src={productImages[id - 1] || '/'}
-						alt='product'
-						className='product-image'
-						style={{ cursor: canOpenLightbox ? 'pointer' : 'initial' }}
-						width={1000}
-						height={1000}
-						onClick={() => {
-							if (!canOpenLightbox) return;
-							openLightbox(id);
-						}}
-					/>
-				</ReactHammer>
+				<img
+					src={productImages[id - 1] || '/'}
+					alt='product'
+					className='product-image'
+					style={{ cursor: canOpenLightbox ? 'pointer' : 'initial' }}
+					width={1000}
+					height={1000}
+					onClick={() => {
+						if (!canOpenLightbox) return;
+						openLightbox(id);
+					}}
+					{...handlers}
+				/>
 				{displayControls && (
 					<div className='product-image-controls'>
 						<div
